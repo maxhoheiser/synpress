@@ -183,6 +183,14 @@ module.exports = (on, config) => {
       const rejected = await metamask.rejectTransaction();
       return rejected;
     },
+    confirmMetamaskEncryptionPublicKeyRequest: async () => {
+      const rejected = await metamask.confirmEncryptionPublicKeyRequest();
+      return rejected;
+    },
+    rejectMetamaskEncryptionPublicKeyRequest: async () => {
+      const rejected = await metamask.rejectEncryptionPublicKeyRequest();
+      return rejected;
+    },
     allowMetamaskToAddNetwork: async () => {
       const allowed = await metamask.allowToAddNetwork();
       return allowed;
