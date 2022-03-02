@@ -495,7 +495,7 @@ module.exports = {
   confirmEncryptionPublicKeyRequest: async () => {
     const notificationPage = await puppeteer.switchToMetamaskNotification();
     await puppeteer.waitAndClick(
-      encryptionPublicKeyPageElements.confirmDecryptionRequestButton,
+      encryptionPublicKeyPageElements.confirmEncryptionPublicKeyButton,
       notificationPage,
     );
     await puppeteer.metamaskWindow().waitForTimeout(3000);
@@ -505,7 +505,7 @@ module.exports = {
   rejectEncryptionPublicKeyRequest: async () => {
     const notificationPage = await puppeteer.switchToMetamaskNotification();
     await puppeteer.waitAndClick(
-      encryptionPublicKeyPageElements.rejectDecryptionRequestButton,
+      encryptionPublicKeyPageElements.rejectEncryptionPublicKeyButton,
       notificationPage,
     );
     await puppeteer.metamaskWindow().waitForTimeout(3000);
@@ -514,7 +514,7 @@ module.exports = {
   confirmDecryptionRequest: async () => {
     const notificationPage = await puppeteer.switchToMetamaskNotification();
     await puppeteer.waitAndClick(
-      decryptPageElements.confirmEncryptionPublicKeyButton,
+      decryptPageElements.confirmDecryptionRequestButton,
       notificationPage,
     );
     await puppeteer.metamaskWindow().waitForTimeout(3000);
@@ -523,7 +523,7 @@ module.exports = {
   rejectDecryptionRequest: async () => {
     const notificationPage = await puppeteer.switchToMetamaskNotification();
     await puppeteer.waitAndClick(
-      decryptPageElements.rejectEncryptionPublicKeyButton,
+      decryptPageElements.rejectDecryptionRequestButton,
       notificationPage,
     );
     await puppeteer.metamaskWindow().waitForTimeout(3000);
