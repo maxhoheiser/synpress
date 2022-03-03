@@ -2,15 +2,17 @@ const notificationPage = '.notification';
 const nextButton = `${notificationPage} .permissions-connect-choose-account__bottom-buttons button:nth-child(2)`;
 const allowToSpendButton = `${notificationPage} [data-testid="page-container-footer-next"]`;
 const rejectToSpendButton = `${notificationPage} [data-testid="page-container-footer-cancel"]`;
+const selectAllCheck = `${notificationPage} .permissions-connect-choose-account__header-check-box`;
 module.exports.notificationPageElements = {
   notificationPage,
   nextButton,
   allowToSpendButton,
   rejectToSpendButton,
+  selectAllCheck,
 };
 
-const confirmSignatureRequestButton = `${notificationPage} .request-signature__footer__sign-button`;
-const rejectSignatureRequestButton = `${notificationPage} .request-signature__footer__cancel-button`;
+const confirmSignatureRequestButton = `${notificationPage} .signature-request-footer :last-child`;
+const rejectSignatureRequestButton = `${notificationPage} .signature-request-footer :first-child`;
 module.exports.signaturePageElements = {
   confirmSignatureRequestButton,
   rejectSignatureRequestButton,

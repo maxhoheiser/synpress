@@ -172,9 +172,10 @@ declare namespace Cypress {
      * Accept metamask access request
      * @example
      * cy.acceptMetamaskAccess()
+     * cy.acceptMetamaskAccess(true)
      */
-    acceptMetamaskAccess(): Chainable<Subject>;
-    /**
+    acceptMetamaskAccess(allAccounts: boolean | undefined): Chainable<Subject>;
+     /**
      * Confirm metamask atransaction
      * @example
      * cy.confirmMetamaskTransaction()
