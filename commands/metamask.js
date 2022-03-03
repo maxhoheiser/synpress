@@ -16,6 +16,8 @@ const {
   permissionsPageElements,
   confirmPageElements,
   signaturePageElements,
+  decryptPageElements,
+  encryptionPublicKeyPageElements,
 } = require('../pages/metamask/notification-page');
 const {
   settingsPageElements,
@@ -424,8 +426,14 @@ module.exports = {
     await puppeteer.metamaskWindow().waitForTimeout(1000);
     return true;
   },
-  acceptAccess: async () => {
+  acceptAccess: async (allAccounts) => {
     const notificationPage = await puppeteer.switchToMetamaskNotification();
+    if (allAccounts === true) {
+      await puppeteer.waitAndClick(
+        notificationPageElements.selectAllCheck,
+        notificationPage,
+      );
+    }
     await puppeteer.waitAndClick(
       notificationPageElements.nextButton,
       notificationPage,
@@ -488,6 +496,43 @@ module.exports = {
       notificationPage,
     );
     await puppeteer.metamaskWindow().waitForTimeout(1000);
+    return true;
+  },
+  confirmEncryptionPublicKeyRequest: async () => {
+    const notificationPage = await puppeteer.switchToMetamaskNotification();
+    await puppeteer.waitAndClick(
+      encryptionPublicKeyPageElements.confirmEncryptionPublicKeyButton,
+      notificationPage,
+    );
+    await puppeteer.metamaskWindow().waitForTimeout(3000);
+    return true;
+  },
+
+  rejectEncryptionPublicKeyRequest: async () => {
+    const notificationPage = await puppeteer.switchToMetamaskNotification();
+    await puppeteer.waitAndClick(
+      encryptionPublicKeyPageElements.rejectEncryptionPublicKeyButton,
+      notificationPage,
+    );
+    await puppeteer.metamaskWindow().waitForTimeout(3000);
+    return true;
+  },
+  confirmDecryptionRequest: async () => {
+    const notificationPage = await puppeteer.switchToMetamaskNotification();
+    await puppeteer.waitAndClick(
+      decryptPageElements.confirmDecryptionRequestButton,
+      notificationPage,
+    );
+    await puppeteer.metamaskWindow().waitForTimeout(3000);
+    return true;
+  },
+  rejectDecryptionRequest: async () => {
+    const notificationPage = await puppeteer.switchToMetamaskNotification();
+    await puppeteer.waitAndClick(
+      decryptPageElements.rejectDecryptionRequestButton,
+      notificationPage,
+    );
+    await puppeteer.metamaskWindow().waitForTimeout(3000);
     return true;
   },
   allowToAddNetwork: async () => {
